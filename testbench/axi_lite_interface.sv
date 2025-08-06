@@ -38,6 +38,28 @@ interface axi_lite_interface #(parameter ADDR_WIDTH = 32, DATA_WIDTH = 32) ();
     logic A_CLK;
     logic A_RESET_n;
 
+    // Assertions to detect AXI protocol violations
+    // 1. Address valid must come before ready (write address phase)
+    property aw_valid_before_aw_ready;
+        @(posedge A_CLK) disable iff (!A_RESET_n)
+        AW_READY |-> AW_VALID;
+    endproperty
+    assert property (aw_valid_before_aw_ready);
+
+    // 2. Write response must complete within 5 cycles
+    property write_response_delay_max;
+        @(posedge A_CLK) disable iff (!A_RESET_n)
+        AW_VALID && AW_READY ##1 W_VALID && W_READY |-> ##[1:5] B_VALID;
+    endproperty
+    assert property (write_response_delay_max);
+
+    // 3. Read response must complete within 5 cycles
+    property read_response_delay_max;
+        @(posedge A_CLK) disable iff (!A_RESET_n)
+        AR_VALID && AR_READY |-> ##[1:5] R_VALID;
+    endproperty
+    assert property (read_response_delay_max);
+
     modport DUT (input A_CLK, A_RESET_n,
                  input AW_ADDR, AW_VALID, W_DATA, W_STRB, W_VALID, B_READY, AR_ADDR, AR_VALID, R_READY,
                  output AW_READY, W_READY, B_RESP, B_VALID, AR_READY, R_DATA, R_RESP, R_VALID);

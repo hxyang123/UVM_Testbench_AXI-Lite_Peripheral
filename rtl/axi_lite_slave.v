@@ -96,4 +96,38 @@ module axi_lite_slave #(
             end
         end
     end
+
+    // Incorrect behavior to trigger assertions in axi_lite_interface
+    always_ff @(posedge A_CLK) begin
+        if(!A_RESET_n)
+            AW_READY <= 0;
+        else
+            AW_READY <= 1; // BUG: AW_READY asserted without AW_VALID
+    end
+    int bresp_delay = 6; // more than the allowed 5
+    always_ff @(posedge A_CLK) begin
+        if(!A_RESET_n) begin
+            bresp_delay <= 6;
+            B_VALID <= 0;
+        end else if (W_VALID && W_READY) begin
+            if (bresp_delay == 0)
+                B_VALID <= 1;
+            else
+                bresp_delay <= bresp_delay - 1
+        end
+    end
+    int rresp_delay = 10; // more than the allowed 5
+    always_ff @(posedge A_CLK) begin
+        if(!A_RESET_n) begin
+            rresp_delay <= 10;
+            B_VALID <= 0;
+        end else if (AR_VALID && AR_READY) begin
+            if (rresp_delay == 0)
+                R_VALID <= 1;
+            else
+                rresp_delay <= rresp_delay - 1
+        end
+    end
+
+
 endmodule
