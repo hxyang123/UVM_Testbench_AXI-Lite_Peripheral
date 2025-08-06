@@ -23,6 +23,8 @@ class axi_sequence extends uvm_sequence #(axi_transaction);
             });
             start_item(tr);
             finish_item(tr);
+            `uvm_info(get_type_name(), $sformatf("Issued %s to addr=0x%08h, data=0x%08h",
+                  tr.write ? "WRITE" : "READ", tr.addr, tr.data), UVM_MEDIUM)
         end
 
         // Edge case: out-of-bound address
@@ -33,6 +35,7 @@ class axi_sequence extends uvm_sequence #(axi_transaction);
         tr.w_strb = 4'b1111;
         start_item(tr);
         finish_item(tr);
+        `uvm_warning(get_type_name(), "Edge case: illegal address access attempted")
     endtask
 endclass
 

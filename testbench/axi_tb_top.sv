@@ -8,6 +8,12 @@
 `define AXI_TB_TOP_SV
 
 module axi_tb_top;
+
+    initial begin
+        $dumpfile("waves.vcd");
+        $dumpvars(0, axi_tb_top);
+    end
+
     bit A_CLK;
     bit A_RESET_n;
 
