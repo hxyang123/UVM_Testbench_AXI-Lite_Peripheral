@@ -19,7 +19,7 @@ class axi_driver extends uvm_driver #(axi_transaction);
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         if(!uvm_config_db#(virtual axi_lite_interface)::get(this, "", "v_if", v_if))
-            `uvm_fatal("NOVIF", "virtual interface must be set");
+            `uvm_fatal("NO_VIF", "virtual interface must be set");
     endfunction
 
     task run_phase(uvm_phase phase);
