@@ -20,10 +20,12 @@ class axi_monitor extends uvm_monitor;
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+        // get virtual interface from configuration DB
         if(!uvm_config_db#(virtual axi_lite_interface)::get(this, "", "v_if", v_if))
             `uvm_fatal("NO_VIF", "virtual interface must be set")
     endfunction
 
+    // monitors the AXI channels and sends observed transactions
     task run_phase(uvm_phase phase);
         forever begin
             @(posedge v_if.A_CLK);

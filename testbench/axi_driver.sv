@@ -18,10 +18,12 @@ class axi_driver extends uvm_driver #(axi_transaction);
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+        // get virtual interface from configuration DB
         if(!uvm_config_db#(virtual axi_lite_interface)::get(this, "", "v_if", v_if))
             `uvm_fatal("NO_VIF", "virtual interface must be set");
     endfunction
 
+    // Main run loop: gets transaction and performs drive
     task run_phase(uvm_phase phase);
         axi_transcation tr;
         forever begin
@@ -31,6 +33,7 @@ class axi_driver extends uvm_driver #(axi_transaction);
         end
     endtask
 
+    // Drives the transaction onto the AXI bus
     task drive(axi_transaction tr);
         @(posedge v_if.A_CLK);
         if (tr.write) begin
