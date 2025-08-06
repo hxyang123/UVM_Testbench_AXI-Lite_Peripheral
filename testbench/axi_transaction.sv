@@ -13,6 +13,14 @@ class axi_transaction extends uvm_sequence_item;
     rand bit        write; // 1 = write, 0 = read
     rand bit [3:0]  w_strb; // Byte enables for write strobe
 
+    constraint legal_addr_range{
+        addr inside {[32'h00000000 : 32'h0000000F]}; // Constraint of 4 registers
+    }
+
+    constraint legal_strobe {
+        w_strb inside {4'b0001, 4'b0011, 4'b0111, 4'b1111}; // Allow 1B, 2B, 3B or full word writes
+    }
+
     `uvm_object_utils(axi_transaction)
 
     function new(string name = "axi_transaction");
