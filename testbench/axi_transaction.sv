@@ -2,6 +2,8 @@
 // axi_transaction.sv
 //===========================================
 
+// Defines the read/write transaction
+
 `ifndef AXI_TRANSACTION_SV
 `define AXI_TRANSCATION_SV
 
