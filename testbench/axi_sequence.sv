@@ -27,7 +27,7 @@ class axi_sequence extends uvm_sequence #(axi_transaction);
 
         // Edge case: out-of-bound address
         tr = axi_transaction::type_id::create("edge_tr");
-        tr.addr = 32'hFFFF_FFFF;
+        tr.addr = 32'hFFFFFFFF;
         tr.data = 32'hBADADD4;
         tr.write = 1;
         tr.w_strb = 4'b1111;

@@ -34,6 +34,10 @@ class axi_test extends uvm_test;
         env.agent.seqr.start_item(tr);
         env.agent.seqr.finish_item(tr);
 
+        // run sequence
+        axi_sequence seq = axi_sequence::type_id::create("seq");
+        seq.start(env.agent.seqr);
+
         phase.drop_objection(this);
     endtask
 endclass
