@@ -7,6 +7,10 @@
 `ifndef AXI_TB_TOP_SV
 `define AXI_TB_TOP_SV
 
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+`include "axi_test.sv"
+
 module axi_tb_top;
 
     initial begin

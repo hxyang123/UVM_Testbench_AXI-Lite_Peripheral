@@ -39,7 +39,7 @@ module axi_lite_slave #(
 
     // Clock and reset
     input wire A_CLK,
-    input wire A_RESET_n, 
+    input wire A_RESET_n 
 );
 
     // 4 internal 32-bit registers
@@ -51,7 +51,7 @@ module axi_lite_slave #(
     // Write logic
     always @(posedge A_CLK) begin
         if (!A_RESET_n) begin // reset
-            AW_READY <= 0; W_READY <= 0; B_VALID <=; B_RESP <= 2'b00;
+            AW_READY <= 0; W_READY <= 0; B_VALID <= 0; B_RESP <= 2'b00;
         end else begin
             AW_READY <= (!AW_READY && AW_VALID) ? 1'b1 : 1'b0;
             W_READY <= (!W_READY && W_VALID) ? 1'b1 : 1'b0;
@@ -96,16 +96,18 @@ module axi_lite_slave #(
             end
         end
     end
-
+/*
     // Incorrect behavior to trigger assertions in axi_lite_interface
-    always_ff @(posedge A_CLK) begin
-        if(!A_RESET_n)
+    always @(posedge A_CLK) begin
+        if(!A_RESET_n) begin
             AW_READY <= 0;
-        else
+        end else begin
             AW_READY <= 1; // BUG: AW_READY asserted without AW_VALID
+	end    
     end
-    int bresp_delay = 6; // more than the allowed 5
-    always_ff @(posedge A_CLK) begin
+    integer bresp_delay;
+    initial bresp_delay = 6; // more than the allowed 5
+    always @(posedge A_CLK) begin
         if(!A_RESET_n) begin
             bresp_delay <= 6;
             B_VALID <= 0;
@@ -113,11 +115,12 @@ module axi_lite_slave #(
             if (bresp_delay == 0)
                 B_VALID <= 1;
             else
-                bresp_delay <= bresp_delay - 1
+                bresp_delay <= bresp_delay - 1;
         end
     end
-    int rresp_delay = 10; // more than the allowed 5
-    always_ff @(posedge A_CLK) begin
+    integer rresp_delay;
+    initial rresp_delay = 10; // more than the allowed 5
+    always @(posedge A_CLK) begin
         if(!A_RESET_n) begin
             rresp_delay <= 10;
             B_VALID <= 0;
@@ -125,9 +128,9 @@ module axi_lite_slave #(
             if (rresp_delay == 0)
                 R_VALID <= 1;
             else
-                rresp_delay <= rresp_delay - 1
+                rresp_delay <= rresp_delay - 1;
         end
     end
-
+*/
 
 endmodule

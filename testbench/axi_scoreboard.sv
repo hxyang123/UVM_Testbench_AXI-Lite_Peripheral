@@ -4,6 +4,13 @@
 
 // Scoreboard to check DUT output vs expected behavior
 
+`ifndef AXI_SCOREBOARD_SV
+`define AXI_SCOREBOARD_SV
+
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+`include "axi_transaction.sv"
+
 class axi_scoreboard extends uvm_scoreboard;
     uvm_analysis_imp #(axi_transaction, axi_scoreboard) analysis_export;
 

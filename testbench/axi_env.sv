@@ -7,6 +7,11 @@
 `ifndef AXI_ENV_SV
 `define AXI_ENV_SV
 
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+`include "axi_agent.sv"
+`include "axi_scoreboard.sv"
+
 class axi_env extends uvm_env;
     axi_agent agent;
     axi_scoreboard sb;

@@ -7,6 +7,10 @@
 `ifndef AXI_MONITOR_SV
 `define AXI_MONITOR_SV
 
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+`include "axi_transaction.sv"
+
 class axi_monitor extends uvm_monitor;
     virtual axi_lite_interface v_if;
     uvm_analysis_port #(axi_transaction) ap;
@@ -21,20 +25,21 @@ class axi_monitor extends uvm_monitor;
         }
 
         // cover read vs write transactions
-        coverpoint write_mode = v_if.AW_VALID ? 1 : (v_if.AR_VALID ? 0 : -1) {
+        coverpoint v_if.AW_VALID ? 1 : (v_if.AR_VALID ? 0 : -1) {
             bins read = {0};
             bins write = {1};
             ignore_bins ignore = {-1};
         }
 
         // cover response codes
-        coverpoint resp_code = v_if.B_VALID ? v_if.B_RESP : (v_if.R_VALID ? v_if.R_RESP : 2'bxx) {
+        coverpoint v_if.B_VALID ? v_if.B_RESP : (v_if.R_VALID ? v_if.R_RESP : 2'bxx) {
             bins okay = {2'b00};
             bins error = {2'b10};
         }
     endgroup
     
-    cov_axi axi_cov = new();
+
+    cov_axi = new();
     `uvm_component_utils(axi_monitor)
 
     function new(string name = "axi_monitor", uvm_component parent);
@@ -44,6 +49,7 @@ class axi_monitor extends uvm_monitor;
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+	
         // get virtual interface from configuration DB
         if(!uvm_config_db#(virtual axi_lite_interface)::get(this, "", "v_if", v_if))
             `uvm_fatal("NO_VIF", "virtual interface must be set")
@@ -61,7 +67,7 @@ class axi_monitor extends uvm_monitor;
                 tr.w_strb = v_if.W_STRB;
                 ap.write(tr);
 
-                axi_cov.sample();
+                cov_axi.sample();
             end
             if (v_if.R_VALID && v_if.R_READY) begin
                 axi_transaction tr = new();
@@ -70,7 +76,7 @@ class axi_monitor extends uvm_monitor;
                 tr.data = v_if.R_DATA;
                 ap.write(tr);
 
-                axi_cov.sample();
+                cov_axi.sample();
             end
         end
     endtask

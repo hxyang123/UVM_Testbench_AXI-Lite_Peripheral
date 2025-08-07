@@ -7,6 +7,10 @@
 `ifndef AXI_DRIVER_SV
 `define AXI_DRIVER_SV
 
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+`include "axi_transaction.sv"
+
 class axi_driver extends uvm_driver #(axi_transaction);
     virtual axi_lite_interface v_if;
 
@@ -25,7 +29,7 @@ class axi_driver extends uvm_driver #(axi_transaction);
 
     // Main run loop: gets transaction and performs drive
     task run_phase(uvm_phase phase);
-        axi_transcation tr;
+        axi_transaction tr;
         forever begin
             seq_item_port.get_next_item(tr);
             drive(tr);
@@ -65,7 +69,7 @@ class axi_driver extends uvm_driver #(axi_transaction);
             // read response
             wait(v_if.R_VALID);
             v_if.R_READY <= 1;
-            @(posedge vif.A_CLK);
+            @(posedge v_if.A_CLK);
             v_if.R_READY <= 0;
         end
     endtask

@@ -7,6 +7,12 @@
 `ifndef  AXI_AGENT_SV
 `define AXI_AGENT_SV
 
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+`include "axi_driver.sv"
+`include "axi_monitor.sv"
+`include "axi_sequencer.sv"
+
 class axi_agent extends uvm_agent;
     axi_driver drv;
     axi_monitor mon;

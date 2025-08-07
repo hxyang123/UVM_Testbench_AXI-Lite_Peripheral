@@ -5,7 +5,10 @@
 // Defines the read/write transaction
 
 `ifndef AXI_TRANSACTION_SV
-`define AXI_TRANSCATION_SV
+`define AXI_TRANSACTION_SV
+
+`include "uvm_macros.svh"
+import uvm_pkg::*;
 
 class axi_transaction extends uvm_sequence_item;
     rand bit [31:0] addr; // Address to read/write

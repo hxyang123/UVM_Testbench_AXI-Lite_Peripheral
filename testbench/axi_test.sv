@@ -7,6 +7,11 @@
 `ifndef AXI_TEST_SV
 `define AXI_TEST_SV
 
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+`include "axi_sequence.sv"
+`include "axi_env.sv"
+
 class axi_test extends uvm_test;
     axi_env env;
 
@@ -24,6 +29,7 @@ class axi_test extends uvm_test;
 
     task run_phase(uvm_phase phase);
         axi_transaction tr;
+	axi_sequence seq;
         phase.raise_objection(this);
         `uvm_info(get_type_name(), "Starting AXI sequence", UVM_LOW)
 
@@ -32,7 +38,7 @@ class axi_test extends uvm_test;
         tr.addr = 32'h00000004;
         tr.data = 32'hABCD1234;
         tr.write = 1;
-        tr.wstrb = 4'b1111;
+        tr.w_strb = 4'b1111;
         env.agent.seqr.start_item(tr);
         env.agent.seqr.finish_item(tr);
 
@@ -40,7 +46,7 @@ class axi_test extends uvm_test;
         uvm_top.set_report_verbosity_level_hier(UVM_HIGH);
 
         // run sequence
-        axi_sequence seq = axi_sequence::type_id::create("seq");
+        seq = axi_sequence::type_id::create("seq");
         if (!seq.randomize()) begin
             `uvm_fatal(get_type_name(), "Sequence randomization failed!")
         end
