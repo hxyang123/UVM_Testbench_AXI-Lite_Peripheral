@@ -28,19 +28,9 @@ class axi_test extends uvm_test;
     endfunction
 
     task run_phase(uvm_phase phase);
-        axi_transaction tr;
 	axi_sequence seq;
         phase.raise_objection(this);
         `uvm_info(get_type_name(), "Starting AXI sequence", UVM_LOW)
-
-        // Example test transaction
-        tr = axi_transaction::type_id::create("tr");
-        tr.addr = 32'h00000004;
-        tr.data = 32'hABCD1234;
-        tr.write = 1;
-        tr.w_strb = 4'b1111;
-        env.agent.seqr.start_item(tr);
-        env.agent.seqr.finish_item(tr);
 
         // Enable global verbosity level
         uvm_top.set_report_verbosity_level_hier(UVM_HIGH);

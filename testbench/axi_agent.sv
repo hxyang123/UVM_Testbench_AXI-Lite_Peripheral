@@ -27,8 +27,8 @@ class axi_agent extends uvm_agent;
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         drv = axi_driver::type_id::create("drv", this);
-        mon = axi_driver::type_id::create("mon", this);
-        seqr = axi_driver::type_id::create("seqr", this);
+        mon = axi_monitor::type_id::create("mon", this);
+        seqr = axi_sequencer::type_id::create("seqr", this);
     endfunction
 
     function void connect_phase(uvm_phase phase);
