@@ -14,7 +14,23 @@ import uvm_pkg::*;
 class axi_monitor extends uvm_monitor;
     virtual axi_lite_interface v_if;
     uvm_analysis_port #(axi_transaction) ap;
+    
+    `uvm_component_utils(axi_monitor)
 
+    function new(string name = "axi_monitor", uvm_component parent);
+        super.new(name, parent);
+        ap = new("ap", this);
+    endfunction
+
+    function void build_phase(uvm_phase phase);
+        super.build_phase(phase);
+	
+        // get virtual interface from configuration DB
+        if(!uvm_config_db#(virtual axi_lite_interface)::get(this, "", "v_if", v_if))
+            `uvm_fatal("NO_VIF", "virtual interface must be set")
+    endfunction
+
+    
     covergroup cov_axi @(posedge v_if.A_CLK);
         option.per_instance = 1;
 
@@ -37,23 +53,6 @@ class axi_monitor extends uvm_monitor;
             bins error = {2'b10};
         }
     endgroup
-    
-
-    cov_axi = new();
-    `uvm_component_utils(axi_monitor)
-
-    function new(string name = "axi_monitor", uvm_component parent);
-        super.new(name, parent);
-        ap = new("ap", this);
-    endfunction
-
-    function void build_phase(uvm_phase phase);
-        super.build_phase(phase);
-	
-        // get virtual interface from configuration DB
-        if(!uvm_config_db#(virtual axi_lite_interface)::get(this, "", "v_if", v_if))
-            `uvm_fatal("NO_VIF", "virtual interface must be set")
-    endfunction
 
     // monitors the AXI channels and sends observed transactions
     task run_phase(uvm_phase phase);

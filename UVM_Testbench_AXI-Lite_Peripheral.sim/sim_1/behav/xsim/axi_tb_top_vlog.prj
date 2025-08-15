@@ -1,0 +1,17 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/tlm1" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/macros" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/seq" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/reg/sequences" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/dpi" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/comps" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/reg" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/tlm2" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/deprecated" \
+"../../../../rtl/axi_lite_slave.v" \
+
+sv xil_defaultlib  --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/tlm1" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/macros" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/seq" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/reg/sequences" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/dpi" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/comps" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/reg" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/tlm2" --include "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/deprecated" \
+"../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/uvm.sv" \
+"../../../../testbench/axi_agent.sv" \
+"../../../../testbench/axi_env.sv" \
+"../../../../testbench/axi_lite_interface.sv" \
+"../../../../testbench/axi_sequence.sv" \
+"../../../../testbench/axi_tb_top.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

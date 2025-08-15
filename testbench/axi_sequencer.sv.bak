@@ -1,0 +1,26 @@
+//===========================================
+// axi_sequencer.sv
+//===========================================
+
+// Feeds transactions to drive
+
+`ifndef AXI_SEQUENCER_SV
+`define AXI_SEQUENCER_SV
+
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+`include "axi_transaction.sv"
+
+class axi_sequencer extends uvm_sequencer #(axi_transaction);
+    `uvm_component_utils(axi_sequencer)
+
+    function new(string name = "axi_sequencer", uvm_component parent);
+        super.new(name, parent);
+    endfunction
+
+    function build_phase(uvm_phase phase);
+	super.build_phase(phase);
+    endfunction
+endclass
+
+`endif

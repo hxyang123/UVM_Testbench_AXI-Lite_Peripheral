@@ -61,7 +61,7 @@ module axi_tb_top;
 
     // start uvm
     initial begin
-        uvm_config_db#(virtual axi_lite_interface)::set(null, "*", "v_if", axi_if);
+        uvm_config_db#(virtual axi_lite_interface)::set(null, "*", "axi_if", axi_if);
         run_test("axi_test");
     end
 endmodule

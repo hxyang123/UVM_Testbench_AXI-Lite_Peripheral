@@ -1,0 +1,37 @@
+BEGIN 3:axi_lite_interface:fast__2:work
+    AW_READY :  1:axi_tb_top:fast:work
+    R_DATA :  1:axi_tb_top:fast:work
+    A_CLK :  1:axi_tb_top:fast:work
+    B_READY :  1:axi_tb_top:fast:work
+    W_VALID :  1:axi_tb_top:fast:work
+    AW_VALID :  1:axi_tb_top:fast:work
+    AR_READY :  1:axi_tb_top:fast:work
+    B_VALID :  1:axi_tb_top:fast:work
+    W_STRB :  1:axi_tb_top:fast:work
+    R_VALID :  1:axi_tb_top:fast:work
+    AW_ADDR :  1:axi_tb_top:fast:work
+    R_READY :  1:axi_tb_top:fast:work
+    AR_VALID :  1:axi_tb_top:fast:work
+    B_RESP :  1:axi_tb_top:fast:work
+    W_DATA :  1:axi_tb_top:fast:work
+    R_RESP :  1:axi_tb_top:fast:work
+    A_RESET_n :  1:axi_tb_top:fast:work
+    AR_ADDR :  1:axi_tb_top:fast:work
+    W_READY :  1:axi_tb_top:fast:work
+END 
+BEGIN 3:axi_lite_interface:fast__1:work
+    R_VALID :  1:axi_tb_top_sv_unit:fast:work
+    A_CLK :  1:axi_tb_top_sv_unit:fast:work
+    AR_ADDR :  1:axi_tb_top_sv_unit:fast:work
+    R_RESP :  1:axi_tb_top_sv_unit:fast:work
+    W_DATA :  1:axi_tb_top_sv_unit:fast:work
+    R_READY :  1:axi_tb_top_sv_unit:fast:work
+    AW_ADDR :  1:axi_tb_top_sv_unit:fast:work
+    AR_VALID :  1:axi_tb_top_sv_unit:fast:work
+    B_VALID :  1:axi_tb_top_sv_unit:fast:work
+    W_STRB :  1:axi_tb_top_sv_unit:fast:work
+    B_RESP :  1:axi_tb_top_sv_unit:fast:work
+    AW_VALID :  1:axi_tb_top_sv_unit:fast:work
+    B_READY :  1:axi_tb_top_sv_unit:fast:work
+    R_DATA :  1:axi_tb_top_sv_unit:fast:work
+END 

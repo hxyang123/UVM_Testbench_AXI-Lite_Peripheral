@@ -1,0 +1,11 @@
+$date
+	Thu Aug  7 12:19:17 2025
+$end
+$version
+	Questa Intel Starter FPGA Edition Version 2024.3
+$end
+$timescale
+	1ns
+$end
+
+$scope module axi_tb_top $end

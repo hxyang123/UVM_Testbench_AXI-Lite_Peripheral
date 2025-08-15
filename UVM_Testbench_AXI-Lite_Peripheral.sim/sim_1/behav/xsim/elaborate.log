@@ -1,0 +1,36 @@
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto df3fc875cede43619679c8073bc24330 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot axi_tb_top_behav xil_defaultlib.axi_tb_top xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-2838] mix of dynamic and non-dynamic array types in assignment context, target type is bit [packed dim count:1] [$], while source type is bit [packed dim count:1] [] [../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/reg/uvm_reg_map.svh:1821]
+WARNING: [VRFC 10-2838] mix of dynamic and non-dynamic array types in assignment context, target type is bit [packed dim count:1] [$], while source type is bit [packed dim count:1] [] [../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/reg/uvm_reg_map.svh:1952]
+WARNING: [VRFC 10-3363] function 'get_type_name' has no return value assignment [../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_factory.svh:675]
+WARNING: [VRFC 10-3363] function 'get_type_handle' has no return value assignment [../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_resource.svh:248]
+WARNING: [VRFC 10-3363] function 'catch' has no return value assignment [../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_report_catcher.svh:364]
+WARNING: [VRFC 10-3363] function 'uvm_string_to_bits' has no return value assignment [../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_globals.svh:333]
+WARNING: [VRFC 10-3363] function 'uvm_bits_to_string' has no return value assignment [../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_globals.svh:346]
+WARNING: [VRFC 10-3363] function 'is_port' has no return value assignment [../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_port_base.svh:74]
+WARNING: [VRFC 10-3363] function 'is_export' has no return value assignment [../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_port_base.svh:78]
+WARNING: [VRFC 10-3363] function 'is_imp' has no return value assignment [../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_port_base.svh:86]
+WARNING: [VRFC 10-3363] function 'get_type_handle' has no return value assignment [../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/tlm2/uvm_tlm2_generic_payload.svh:960]
+WARNING: [VRFC 10-3363] function 'get_type_handle_name' has no return value assignment [../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/tlm2/uvm_tlm2_generic_payload.svh:967]
+WARNING: [VRFC 10-3363] function 'reg2bus' has no return value assignment [../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/reg/uvm_reg_adapter.svh:86]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4100] "C:/Hao Xiang Yang/Personal Projects/UVM_Testbench_AXI-Lite_Peripheral/UVM_Testbench_AXI-Lite_Peripheral.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4328] File: ../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_phase.svh Line: 1639 : Sensitivity on input argument "state" of task "wait_for_state" may never get triggered.
+WARNING: [XSIM 43-3980] File "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_phase.svh" Line 1639 : The SystemVerilog feature ": Sensitivity on input argument of Class Member Task" is not supported yet for simulation.
+WARNING: [XSIM 43-4328] File: ../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_phase.svh Line: 1640 : Sensitivity on input argument "state" of task "wait_for_state" may never get triggered.
+WARNING: [XSIM 43-3980] File "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_phase.svh" Line 1640 : The SystemVerilog feature ": Sensitivity on input argument of Class Member Task" is not supported yet for simulation.
+WARNING: [XSIM 43-4328] File: ../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_phase.svh Line: 1641 : Sensitivity on input argument "state" of task "wait_for_state" may never get triggered.
+WARNING: [XSIM 43-3980] File "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_phase.svh" Line 1641 : The SystemVerilog feature ": Sensitivity on input argument of Class Member Task" is not supported yet for simulation.
+WARNING: [XSIM 43-4328] File: ../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_phase.svh Line: 1642 : Sensitivity on input argument "state" of task "wait_for_state" may never get triggered.
+WARNING: [XSIM 43-3980] File "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_phase.svh" Line 1642 : The SystemVerilog feature ": Sensitivity on input argument of Class Member Task" is not supported yet for simulation.
+WARNING: [XSIM 43-4328] File: ../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_phase.svh Line: 1643 : Sensitivity on input argument "state" of task "wait_for_state" may never get triggered.
+WARNING: [XSIM 43-3980] File "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_phase.svh" Line 1643 : The SystemVerilog feature ": Sensitivity on input argument of Class Member Task" is not supported yet for simulation.
+WARNING: [XSIM 43-4328] File: ../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_phase.svh Line: 1644 : Sensitivity on input argument "state" of task "wait_for_state" may never get triggered.
+WARNING: [XSIM 43-3980] File "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/base/uvm_phase.svh" Line 1644 : The SystemVerilog feature ": Sensitivity on input argument of Class Member Task" is not supported yet for simulation.
+WARNING: [XSIM 43-4328] File: ../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/seq/uvm_sequencer_base.svh Line: 1057 : Sensitivity on input argument "transaction_id" of task "wait_for_item_done" may never get triggered.
+WARNING: [XSIM 43-3980] File "../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/seq/uvm_sequencer_base.svh" Line 1057 : The SystemVerilog feature ": Sensitivity on input argument of Class Member Task" is not supported yet for simulation.
+ERROR: [XSIM 43-3294] Signal EXCEPTION_ACCESS_VIOLATION received.

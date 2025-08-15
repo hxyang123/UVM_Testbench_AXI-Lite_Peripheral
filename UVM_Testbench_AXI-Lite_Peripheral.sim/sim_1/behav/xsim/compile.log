@@ -1,0 +1,9 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/uvm.sv" into library xil_defaultlib
+WARNING: [VRFC 10-2838] mix of dynamic and non-dynamic array types in assignment context, target type is bit [packed dim count:1] [$], while source type is bit [packed dim count:1] [] [../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/reg/uvm_reg_map.svh:1821]
+WARNING: [VRFC 10-2838] mix of dynamic and non-dynamic array types in assignment context, target type is bit [packed dim count:1] [$], while source type is bit [packed dim count:1] [] [../../../../../../../intelFPGA_lite/24.1std/questa_fse/verilog_src/uvm-1.1d/src/reg/uvm_reg_map.svh:1952]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Hao Xiang Yang/Personal Projects/UVM_Testbench_AXI-Lite_Peripheral/testbench/axi_agent.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Hao Xiang Yang/Personal Projects/UVM_Testbench_AXI-Lite_Peripheral/testbench/axi_env.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Hao Xiang Yang/Personal Projects/UVM_Testbench_AXI-Lite_Peripheral/testbench/axi_lite_interface.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Hao Xiang Yang/Personal Projects/UVM_Testbench_AXI-Lite_Peripheral/testbench/axi_sequence.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Hao Xiang Yang/Personal Projects/UVM_Testbench_AXI-Lite_Peripheral/testbench/axi_tb_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_tb_top
